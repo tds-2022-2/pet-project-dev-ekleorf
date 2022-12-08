@@ -1,0 +1,1 @@
+curl -X GET "https://api.sicredi.com.br/sb/open-banking/channels/v1/electronic-channels" -H "accept: */*" -H "client_id: 91c7e98a-1495-4a9d-9bd4-9a28b4325414"
