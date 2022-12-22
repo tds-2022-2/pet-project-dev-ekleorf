@@ -6,14 +6,14 @@ POST http://localhost:8080/api/projetos
 Content-Type: application/json
 
 {
-    "nome":"erik"
+    "nome":"compass"
 }
 
 ###
-DELETE http://localhost:8080/api/projetos/fc90ee39-2e1c-48d0-a700-d5f0c62ec5b3
+DELETE http://localhost:8080/api/projetos/ba93a2da-850e-4a27-ac9b-9efbab53e9b5
 
 ###Altera status do Projeto
-PATCH http://localhost:8080/api/projetos/bf1ad4ec-f877-4ad3-9a41-cc451b2c3f27
+PATCH http://localhost:8080/api/projetos/7d68a823-494e-4bde-aac3-4b61fb6919ac
 Content-Type: application/json
 
 {
@@ -21,10 +21,10 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/api/projetos/15ad0a0a-01bd-4d17-b92b-deb1d46d5328
+PUT http://localhost:8080/api/projetos/7d68a823-494e-4bde-aac3-4b61fb6919ac
 Content-Type: application/json
 
 {
     "nome": "Teste 2",
-    "status": false
+    "status": true
 }
