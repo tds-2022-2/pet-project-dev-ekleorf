@@ -1,0 +1,99 @@
+swagger: "2.0"
+info:
+  title: API para Gerenciamento de Projetos
+  description: Api para gerenciamento dos projetos em que o time está envolvido.
+  version: 1.0.0
+host: api.ekleorf.com
+basePath: /api/projetos
+schemes:
+  - https
+paths:
+  /projetos:
+    get:
+      summary: Retorna a lista de projetos cadastrados.
+      description: Retorna uma lista com todos os projetos cadastrados, independente do status de ativo ou inativo.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Ok
+    post:
+      summary: Cria um novo projeto.
+      description: Cria um projeto.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: nome
+          description: Nome do projeto a ser criado.
+          schema:
+            type: object
+            properties:
+              nome:
+                type: string
+                description: Nome do projeto.
+            required:
+              - nome
+      responses:
+        201:
+          description: Created
+          
+  /projetos/{id}:
+    parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          description: Id do registro.
+    delete:
+      summary: Exclui um determinado projeto.
+      description: A partir de um id, é excluido o registro associado aquele id.
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: OK
+        404: 
+          description: Id não encontrado.
+    put:
+      summary: Atualiza as informações de um projeto.
+      description: Optional extended description in Markdown.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: projeto
+          description: Informações de nome e status do projeto.
+          schema:
+            type: object
+            required:
+              - nome
+              - status
+            properties:
+              nome:
+                type: string
+              status:
+                type: boolean
+      responses:
+        200:
+          description: OK
+    patch:
+      summary: Altera a status de um projeto.
+      description: Modifica o identificador "Status", ativando ou desativando o projeto.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: status
+          description: Status a ser setado no projeto escolhido.
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+                description: Nome do projeto.
+            required:
+              - status
+      responses:
+        200:
+          description: OK
